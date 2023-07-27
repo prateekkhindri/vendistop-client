@@ -23,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "REACT_APP_BACKEND_URL=https://note-taking-backend-097194384ac8.herokuapp.com react-scripts start",
+    "start": "REACT_APP_BACKEND_URL=https://vendistop-api-551f58ca7ada.herokuapp.com react-scripts start",
     "start-dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
