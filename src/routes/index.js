@@ -1,5 +1,13 @@
 import React from "react";
-
+import { Route, Routes } from "react-router-dom";
+import { Registration } from "../pages";
 export const Routers = () => {
-  return <div>Hello World</div>;
+  return (
+    <>
+      <Routes>
+        {/* Login and signup routes */}
+        <Route path="/signup" element={<Registration />} />
+      </Routes>
+    </>
+  );
 };
