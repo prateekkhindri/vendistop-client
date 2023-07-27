@@ -2,6 +2,7 @@ import axios from "axios";
 
 const rootUrl = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;
 const loginRegisterEp = rootUrl + "/register-login";
+const loginEp = loginRegisterEp + "/login";
 const userEp = rootUrl + "/admin";
 
 // Re-usable function so we do not have to repeat the process below
@@ -71,6 +72,16 @@ export const postAdminUser = (data) => {
   const option = {
     method: "post",
     url: loginRegisterEp,
+    data,
+  };
+  return apiProcessor(option);
+};
+
+// API endpoint for login
+export const loginAdminUser = (data) => {
+  const option = {
+    method: "post",
+    url: loginEp,
     data,
   };
   return apiProcessor(option);
