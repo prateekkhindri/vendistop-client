@@ -96,3 +96,23 @@ export const getAdminUser = () => {
 
   return apiProcessor(option);
 };
+
+// Password reset API'S
+// In the query below, data is an object
+export const requestOTP = (data) => {
+  const option = {
+    method: "post",
+    url: loginRegisterEp + "/otp-request",
+    data,
+  };
+  return apiProcessor(option);
+};
+
+export const resetPassword = (data) => {
+  const option = {
+    method: "patch",
+    url: loginRegisterEp + "/password",
+    data,
+  };
+  return apiProcessor(option);
+};
