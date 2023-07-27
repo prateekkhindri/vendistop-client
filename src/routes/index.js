@@ -1,6 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Registration, Login } from "../pages";
+
+import Login from "../pages/login-register/Login.js";
+import Registration from "../pages/login-register/Registration.js";
+
 export const Routers = () => {
   return (
     <>

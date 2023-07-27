@@ -86,3 +86,13 @@ export const loginAdminUser = (data) => {
   };
   return apiProcessor(option);
 };
+
+export const getAdminUser = () => {
+  const option = {
+    method: "get",
+    url: userEp,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};

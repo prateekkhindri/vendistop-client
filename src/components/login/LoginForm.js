@@ -17,7 +17,6 @@ export const LoginForm = () => {
 
   const { user } = useSelector((state) => state.adminUser);
 
-  // console.log(location);          // Check the console to see the users location i.e the page they are coming from
   const origin =
     (location.state && location.state.from && location.state.from.pathname) ||
     "/";
@@ -79,7 +78,7 @@ export const LoginForm = () => {
                   onChange={handleChange}
                 />
               </div>
-              {/* Just for making the inputs width same, no need to change anyting here. Don't get confused */}
+
               <div className="flex items-center justify-center invisible">
                 <Icon
                   icon="mingcute:safe-lock-fill"
