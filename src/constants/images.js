@@ -10,7 +10,7 @@ import cuteWoman from "../assets/images/cute-woman-small.png";
 import cuteWomanBig from "../assets/images/cute-woman.png";
 
 //Exporting all the images as default export
-export default {
+const images = {
   //Exporting svg images
   notFoundBaner,
   confirmationBanner,
@@ -22,3 +22,5 @@ export default {
   cuteWoman,
   cuteWomanBig,
 };
+
+export default images;
