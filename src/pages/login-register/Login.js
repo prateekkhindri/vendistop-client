@@ -16,13 +16,15 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <Link to={"/"}>
-        <div className="flex items-center py-9">
-          <Icon icon="pajamas:go-back" />
-          <span className="pl-3">Go Home</span>
-        </div>
-      </Link>
+    <div>
+      <div className="flex flex-col items-center">
+        <Link to={"/"}>
+          <div className="flex items-center py-9">
+            <Icon icon="pajamas:go-back" />
+            <span className="pl-3">Go Home</span>
+          </div>
+        </Link>
+      </div>
       <LoginForm />
     </div>
   );
