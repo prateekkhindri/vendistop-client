@@ -23,6 +23,7 @@ export const LoginForm = () => {
 
   useEffect(() => {
     user?._id && navigate(origin);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, navigate]);
 
   const togglePassword = () => {

@@ -11,6 +11,8 @@ const Login = () => {
 
   useEffect(() => {
     !user._id && dispatch(autoAdminLogin());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
