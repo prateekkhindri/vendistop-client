@@ -6,6 +6,7 @@ const loginEp = loginRegisterEp + "/login";
 const userEp = rootUrl + "/admin";
 const catEp = rootUrl + "/categories";
 const productEp = rootUrl + "/products";
+const orderEp = rootUrl + "/orders";
 
 // Re-usable function so we do not have to repeat the process below
 const apiProcessor = async ({ method, url, data, privateAPI, token }) => {
@@ -180,7 +181,6 @@ export const getSingleProduct = (_id) => {
   const option = {
     method: "get",
     url: productEp + "/" + _id,
-    // privateAPI: true,
   };
 
   return apiProcessor(option);
@@ -212,6 +212,64 @@ export const deleteProduct = (_id) => {
   const option = {
     method: "delete",
     url: productEp + "/" + _id,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Order API'S
+
+// Get order by _id
+export const getSingleOrder = (_id) => {
+  const option = {
+    method: "get",
+    url: orderEp + "/" + _id,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Get all orders
+export const getAllOrders = () => {
+  const option = {
+    method: "get",
+    url: orderEp,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Create a new order
+export const createOrder = (orderData) => {
+  const option = {
+    method: "post",
+    url: orderEp,
+    data: orderData,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Update order to delivered
+export const updateOrderToDelivered = (_id) => {
+  const option = {
+    method: "put",
+    url: orderEp + "/" + _id + "/deliver",
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Get orders by user
+export const getOrdersByUser = (_id) => {
+  const option = {
+    method: "get",
+    url: orderEp + "/my-orders",
     privateAPI: true,
   };
 
