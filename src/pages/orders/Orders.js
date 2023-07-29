@@ -1,7 +1,12 @@
 import React from "react";
+import { DashOrderList } from "../../components/Dashboard";
 
 const Orders = () => {
-  return <div>Orders</div>;
+  return (
+    <div>
+      <DashOrderList />
+    </div>
+  );
 };
 
 export default Orders;
