@@ -6,6 +6,9 @@ import { ResetPassword } from "../components";
 
 import { DashNav } from "../components/Dashboard";
 
+import DashboardCategories from "../pages/categories/DashboardCategories";
+import { PrivateRouter } from "../components/private-route/PrivateRouter";
+
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
 
@@ -41,7 +44,16 @@ export const Routers = () => {
               handleToggle={handleToggle}
             />
           }
-        ></Route>
+        >
+          <Route
+            path="categories"
+            element={
+              <PrivateRouter>
+                <DashboardCategories />
+              </PrivateRouter>
+            }
+          />
+        </Route>
       </Routes>
     </>
   );
