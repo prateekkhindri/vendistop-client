@@ -8,6 +8,8 @@ import { DashNav } from "../components/Dashboard";
 
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
+import UploadProduct from "../pages/upload-product/UploadProduct";
+import ProductList from "../pages/dashboard-products/ProductList";
 
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
@@ -45,6 +47,31 @@ export const Routers = () => {
             />
           }
         >
+          <Route
+            path="products"
+            element={
+              <PrivateRouter>
+                <ProductList />
+              </PrivateRouter>
+            }
+          />
+          <Route
+            path="upload-products"
+            element={
+              <PrivateRouter>
+                <UploadProduct />
+              </PrivateRouter>
+            }
+          />
+
+          <Route
+            path="upload-products/:_id"
+            element={
+              <PrivateRouter>
+                <UploadProduct />
+              </PrivateRouter>
+            }
+          />
           <Route
             path="categories"
             element={
