@@ -17,6 +17,8 @@ export const UpdateCategory = ({ handleDelete, isEditMode, setIsEditMode }) => {
 
   useEffect(() => {
     dispatch(getCategoriesAction());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleEdit = (category) => {
