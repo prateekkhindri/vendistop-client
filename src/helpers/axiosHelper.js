@@ -5,6 +5,7 @@ const loginRegisterEp = rootUrl + "/register-login";
 const loginEp = loginRegisterEp + "/login";
 const userEp = rootUrl + "/admin";
 const catEp = rootUrl + "/categories";
+const productEp = rootUrl + "/products";
 
 // Re-usable function so we do not have to repeat the process below
 const apiProcessor = async ({ method, url, data, privateAPI, token }) => {
@@ -162,5 +163,57 @@ export const updateCategory = (data) => {
     data,
     privateAPI: true,
   };
+  return apiProcessor(option);
+};
+
+// PRODUCT API'S
+export const getProducts = () => {
+  const option = {
+    method: "get",
+    url: productEp,
+    // privateAPI: true,
+  };
+  return apiProcessor(option);
+};
+
+export const getSingleProduct = (_id) => {
+  const option = {
+    method: "get",
+    url: productEp + "/" + _id,
+    // privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+export const postProduct = (data) => {
+  const option = {
+    method: "post",
+    url: productEp,
+    privateAPI: true,
+    data,
+  };
+
+  return apiProcessor(option);
+};
+
+export const updateProduct = (data, _id) => {
+  const option = {
+    method: "put",
+    url: `${productEp}/${_id}`,
+    privateAPI: true,
+    data,
+  };
+
+  return apiProcessor(option);
+};
+
+export const deleteProduct = (_id) => {
+  const option = {
+    method: "delete",
+    url: productEp + "/" + _id,
+    privateAPI: true,
+  };
+
   return apiProcessor(option);
 };
