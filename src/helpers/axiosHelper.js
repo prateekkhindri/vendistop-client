@@ -4,6 +4,7 @@ const rootUrl = `${process.env.REACT_APP_BACKEND_URL}/api/v1`;
 const loginRegisterEp = rootUrl + "/register-login";
 const loginEp = loginRegisterEp + "/login";
 const userEp = rootUrl + "/admin";
+const catEp = rootUrl + "/categories";
 
 // Re-usable function so we do not have to repeat the process below
 const apiProcessor = async ({ method, url, data, privateAPI, token }) => {
@@ -113,6 +114,53 @@ export const resetPassword = (data) => {
     method: "patch",
     url: loginRegisterEp + "/password",
     data,
+  };
+  return apiProcessor(option);
+};
+
+// Category Endpoints
+// All category EP's are private routes except for getting categories
+
+// Get all categories
+export const fetchCategory = (_id) => {
+  const url = _id ? catEp + "/" + _id : catEp;
+
+  const option = {
+    method: "get",
+    url,
+  };
+  return apiProcessor(option);
+};
+
+// Post/Add a new category
+export const postCategory = (data) => {
+  const option = {
+    method: "post",
+    url: catEp,
+    data,
+    privateAPI: true,
+  };
+  return apiProcessor(option);
+};
+
+// Delete  categories
+export const deleteCategories = (data) => {
+  const option = {
+    method: "delete",
+    url: catEp,
+    data,
+    privateAPI: true,
+  };
+  return apiProcessor(option);
+};
+
+// Update  category
+export const updateCategory = (data) => {
+  const option = {
+    method: "put",
+    url: catEp,
+    data,
+    privateAPI: true,
   };
   return apiProcessor(option);
 };
