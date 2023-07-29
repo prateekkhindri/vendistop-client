@@ -1,15 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-
 import { Login, PasswordResetEmail, Registration } from "../pages";
 import { ResetPassword } from "../components";
-
 import { DashNav } from "../components/Dashboard";
-
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
 import ProductList from "../pages/dashboard-products/ProductList";
+import Orders from "../pages/orders/Orders";
 
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
@@ -72,6 +70,16 @@ export const Routers = () => {
               </PrivateRouter>
             }
           />
+
+          <Route
+            path="order-list"
+            element={
+              <PrivateRouter>
+                <Orders />
+              </PrivateRouter>
+            }
+          />
+
           <Route
             path="categories"
             element={
