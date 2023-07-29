@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Login, PasswordResetEmail, Registration } from "../pages";
 import { ResetPassword } from "../components";
 
-import { DashNav, Statistics } from "../components/Dashboard";
+import { DashNav } from "../components/Dashboard";
 
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
