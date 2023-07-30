@@ -4,6 +4,7 @@ import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { SubmitButton } from "./SubmitButton/SubmitButton";
 import { VerificationBanner } from "./VerificationBanner/VerificationBanner";
 import { NavBar } from "./NavBar/NavBar";
+import { Footer } from "./Footer/Footer";
 
 export {
   RegistrationForm,
@@ -12,4 +13,5 @@ export {
   SubmitButton,
   VerificationBanner,
   NavBar,
+  Footer,
 };
