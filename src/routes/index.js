@@ -9,6 +9,7 @@ import {
   Privacy,
   Terms,
   NotFound,
+  Wishlist,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
@@ -33,6 +34,16 @@ export const Routers = () => {
         <Route element={<NavBar />}>
           {/* Main page routes */}
           <Route path="/" element={<Home />} />
+
+          {/* Wishlist and Cart pages accessible only to a logged in user */}
+          <Route
+            path="/wishlist"
+            element={
+              <PrivateRouter>
+                <Wishlist />
+              </PrivateRouter>
+            }
+          />
 
           {/* Privacy and Terms pages */}
           <Route path="/privacy" element={<Privacy />} />

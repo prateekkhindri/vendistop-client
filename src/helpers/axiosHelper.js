@@ -275,3 +275,34 @@ export const getOrdersByUser = (_id) => {
 
   return apiProcessor(option);
 };
+
+// WishList API'S
+export const getUserWishlist = () => {
+  const option = {
+    method: "get",
+    url: userEp + "/wishlist",
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+export const addToUserWishlist = (productId) => {
+  const option = {
+    method: "post",
+    url: userEp + "/wishlist/" + productId,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+export const removeFromUserWishlist = (productId) => {
+  const option = {
+    method: "delete",
+    url: userEp + "/wishlist/" + productId,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};

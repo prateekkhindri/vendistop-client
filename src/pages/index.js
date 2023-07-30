@@ -8,6 +8,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import Terms from "./Terms/Terms";
 import Privacy from "./Privacy/Privacy";
 import NotFound from "./NotFound/NotFound";
+import Wishlist from "./Wishlist/Wishlist";
 
 // Export all pages
 export {
@@ -20,4 +21,5 @@ export {
   Terms,
   Privacy,
   NotFound,
+  Wishlist,
 };
