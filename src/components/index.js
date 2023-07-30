@@ -8,6 +8,7 @@ import { Footer } from "./Footer/Footer";
 import { HomeSlider } from "./HomeSlider/HomeSlider";
 import { TrendingProducts } from "./TrendingProducts/TrendingProducts";
 import { Rules } from "./Rules/Rules";
+import { WishlistCard } from "./WishlistCard/WishlistCard";
 
 export {
   RegistrationForm,
@@ -20,4 +21,5 @@ export {
   TrendingProducts,
   HomeSlider,
   Rules,
+  WishlistCard,
 };
