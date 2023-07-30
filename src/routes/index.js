@@ -17,6 +17,7 @@ import {
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
+import { EditProfile, Profile, OrderHistory } from "../pages/UserProfile";
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
@@ -63,6 +64,33 @@ export const Routers = () => {
               </PrivateRouter>
             }
           />
+
+          {/* Sub routes for profile page - These will be private only accessible to a logged in user */}
+          <Route
+            path="/profile"
+            element={
+              <PrivateRouter>
+                <Profile />
+              </PrivateRouter>
+            }
+          >
+            <Route
+              index
+              element={
+                <PrivateRouter>
+                  <EditProfile />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="history"
+              element={
+                <PrivateRouter>
+                  <OrderHistory />
+                </PrivateRouter>
+              }
+            />
+          </Route>
 
           {/* Privacy and Terms pages */}
           <Route path="/privacy" element={<Privacy />} />
