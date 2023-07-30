@@ -1,8 +1,23 @@
 import React, { useRef, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+
 import { Login, PasswordResetEmail, Registration, Dashboard } from "../pages";
 import { ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
+
+import {
+  Home,
+  Login,
+  PasswordResetEmail,
+  Registration,
+  Dashboard,
+  Privacy,
+  Terms,
+  NotFound,
+} from "../pages";
+import { NavBar, ResetPassword } from "../components";
+import { DashNav } from "../components/Dashboard";
+
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
@@ -21,6 +36,14 @@ export const Routers = () => {
   return (
     <>
       <Routes>
+        <Route element={<NavBar />}>
+          {/* Main page routes */}
+          <Route path="/" element={<Home />} />
+
+          {/* Privacy and Terms pages */}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Route>
         {/* Login and signup routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Registration />} />
@@ -103,6 +126,10 @@ export const Routers = () => {
             />
           </Route>
         </Route>
+
+        {/* If there is not routes available then return 404 page instead */}
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to={"/404"} />} />
       </Routes>
     </>
   );
