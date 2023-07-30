@@ -9,6 +9,7 @@ import Terms from "./Terms/Terms";
 import Privacy from "./Privacy/Privacy";
 import NotFound from "./NotFound/NotFound";
 import Wishlist from "./Wishlist/Wishlist";
+import Cart from "./Cart/Cart";
 
 // Export all pages
 export {
@@ -22,4 +23,5 @@ export {
   Privacy,
   NotFound,
   Wishlist,
+  Cart,
 };

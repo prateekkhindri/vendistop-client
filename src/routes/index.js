@@ -10,6 +10,7 @@ import {
   Terms,
   NotFound,
   Wishlist,
+  Cart,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
@@ -41,6 +42,15 @@ export const Routers = () => {
             element={
               <PrivateRouter>
                 <Wishlist />
+              </PrivateRouter>
+            }
+          />
+
+          <Route
+            path="/cart"
+            element={
+              <PrivateRouter>
+                <Cart />
               </PrivateRouter>
             }
           />
