@@ -11,6 +11,7 @@ import { Rules } from "./Rules/Rules";
 import { WishlistCard } from "./WishlistCard/WishlistCard";
 import { CartItem } from "./CartItem/CartItem";
 import { ProductCard } from "./ProductCard/ProductCard";
+import { OrderHistoryCard } from "./OrderHistoryCard/OrderHistoryCard";
 
 export {
   RegistrationForm,
@@ -26,4 +27,5 @@ export {
   WishlistCard,
   CartItem,
   ProductCard,
+  OrderHistoryCard,
 };

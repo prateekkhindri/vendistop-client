@@ -351,3 +351,24 @@ export const clearUserCart = () => {
 
   return apiProcessor(option);
 };
+
+// Admin user API calls (These are private routes)
+export const updateAdminPassword = (data) => {
+  const option = {
+    method: "patch",
+    url: userEp,
+    data,
+    privateAPI: true,
+  };
+  return apiProcessor(option);
+};
+
+export const updateAdminProfile = (data) => {
+  const option = {
+    method: "put",
+    url: userEp,
+    data,
+    privateAPI: true,
+  };
+  return apiProcessor(option);
+};
