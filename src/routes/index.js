@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Login, PasswordResetEmail, Registration } from "../pages";
+import { Login, PasswordResetEmail, Registration, Dashboard } from "../pages";
 import { ResetPassword } from "../components";
 import { DashNav } from "../components/Dashboard";
 import DashboardCategories from "../pages/categories/DashboardCategories";
@@ -46,48 +46,61 @@ export const Routers = () => {
           }
         >
           <Route
-            path="products"
+            path="/dashboard"
             element={
               <PrivateRouter>
-                <ProductList />
+                <Dashboard
+                  toggle={toggle}
+                  handleToggle={handleToggle}
+                  dashRef={dashRef}
+                />
               </PrivateRouter>
             }
-          />
-          <Route
-            path="upload-products"
-            element={
-              <PrivateRouter>
-                <UploadProduct />
-              </PrivateRouter>
-            }
-          />
+          >
+            <Route
+              path="products"
+              element={
+                <PrivateRouter>
+                  <ProductList />
+                </PrivateRouter>
+              }
+            />
+            <Route
+              path="upload-products"
+              element={
+                <PrivateRouter>
+                  <UploadProduct />
+                </PrivateRouter>
+              }
+            />
 
-          <Route
-            path="upload-products/:_id"
-            element={
-              <PrivateRouter>
-                <UploadProduct />
-              </PrivateRouter>
-            }
-          />
+            <Route
+              path="upload-products/:_id"
+              element={
+                <PrivateRouter>
+                  <UploadProduct />
+                </PrivateRouter>
+              }
+            />
 
-          <Route
-            path="order-list"
-            element={
-              <PrivateRouter>
-                <Orders />
-              </PrivateRouter>
-            }
-          />
+            <Route
+              path="order-list"
+              element={
+                <PrivateRouter>
+                  <Orders />
+                </PrivateRouter>
+              }
+            />
 
-          <Route
-            path="categories"
-            element={
-              <PrivateRouter>
-                <DashboardCategories />
-              </PrivateRouter>
-            }
-          />
+            <Route
+              path="categories"
+              element={
+                <PrivateRouter>
+                  <DashboardCategories />
+                </PrivateRouter>
+              }
+            />
+          </Route>
         </Route>
       </Routes>
     </>
