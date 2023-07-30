@@ -5,6 +5,8 @@ import { SubmitButton } from "./SubmitButton/SubmitButton";
 import { VerificationBanner } from "./VerificationBanner/VerificationBanner";
 import { NavBar } from "./NavBar/NavBar";
 import { Footer } from "./Footer/Footer";
+import { HomeSlider } from "./HomeSlider/HomeSlider";
+import { TrendingProducts } from "./TrendingProducts/TrendingProducts";
 
 export {
   RegistrationForm,
@@ -14,4 +16,6 @@ export {
   VerificationBanner,
   NavBar,
   Footer,
+  TrendingProducts,
+  HomeSlider,
 };

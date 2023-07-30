@@ -38,6 +38,8 @@ export const NavBar = () => {
   // Fetch the categories every time the page reloads
   useEffect(() => {
     !categories.length && dispatch(getCategoriesAction());
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // toggle the search popup option
