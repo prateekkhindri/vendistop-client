@@ -7,6 +7,7 @@ const userEp = rootUrl + "/admin";
 const catEp = rootUrl + "/categories";
 const productEp = rootUrl + "/products";
 const orderEp = rootUrl + "/orders";
+const cartEp = rootUrl + "/cart";
 
 // Re-usable function so we do not have to repeat the process below
 const apiProcessor = async ({ method, url, data, privateAPI, token }) => {
@@ -301,6 +302,50 @@ export const removeFromUserWishlist = (productId) => {
   const option = {
     method: "delete",
     url: userEp + "/wishlist/" + productId,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// CART API's
+export const getUserCart = () => {
+  const option = {
+    method: "get",
+    url: cartEp,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+export const addToUserCart = (productId) => {
+  const option = {
+    method: "post",
+    url: cartEp + "/" + productId,
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+export const removeFromUserCart = (productId, removeAll = false) => {
+  const option = {
+    method: "delete",
+    url: cartEp + "/" + productId,
+    data: { removeAll },
+    privateAPI: true,
+  };
+
+  return apiProcessor(option);
+};
+
+// Clear user cart
+
+export const clearUserCart = () => {
+  const option = {
+    method: "delete",
+    url: cartEp + "/clear",
     privateAPI: true,
   };
 

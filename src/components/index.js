@@ -9,6 +9,7 @@ import { HomeSlider } from "./HomeSlider/HomeSlider";
 import { TrendingProducts } from "./TrendingProducts/TrendingProducts";
 import { Rules } from "./Rules/Rules";
 import { WishlistCard } from "./WishlistCard/WishlistCard";
+import { CartItem } from "./CartItem/CartItem";
 
 export {
   RegistrationForm,
@@ -22,4 +23,5 @@ export {
   HomeSlider,
   Rules,
   WishlistCard,
+  CartItem,
 };

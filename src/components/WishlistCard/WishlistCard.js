@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { removeProductFromWishlist } from "../../pages/Wishlist/wishlistAction.js";
 import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../pages/Cart/cartAction.js";
 
 export const WishlistCard = ({ _id, image, title, price }) => {
   const dispatch = useDispatch();
@@ -34,7 +35,10 @@ export const WishlistCard = ({ _id, image, title, price }) => {
         </div>
         {/* Add to cart and remove from favorite buttons*/}
         <div className="flex items-center justify-end pt-3">
-          <div className="p-1 bg-white rounded-md cursor-pointer">
+          <div
+            onClick={() => dispatch(addProductToCart(_id, 1))}
+            className="p-1 bg-white rounded-md cursor-pointer"
+          >
             <Icon
               icon="uil:shopping-cart"
               className="hover:text-red-400 lg:text-xl text-[#696969]"
