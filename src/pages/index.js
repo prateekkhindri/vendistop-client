@@ -10,6 +10,8 @@ import Privacy from "./Privacy/Privacy";
 import NotFound from "./NotFound/NotFound";
 import Wishlist from "./Wishlist/Wishlist";
 import Cart from "./Cart/Cart";
+import Products from "./Products/Products";
+import ProductDetails from "./ProductDetails/ProductDetails";
 
 // Export all pages
 export {
@@ -24,4 +26,6 @@ export {
   NotFound,
   Wishlist,
   Cart,
+  Products,
+  ProductDetails,
 };

@@ -10,6 +10,7 @@ import { TrendingProducts } from "./TrendingProducts/TrendingProducts";
 import { Rules } from "./Rules/Rules";
 import { WishlistCard } from "./WishlistCard/WishlistCard";
 import { CartItem } from "./CartItem/CartItem";
+import { ProductCard } from "./ProductCard/ProductCard";
 
 export {
   RegistrationForm,
@@ -24,4 +25,5 @@ export {
   Rules,
   WishlistCard,
   CartItem,
+  ProductCard,
 };
