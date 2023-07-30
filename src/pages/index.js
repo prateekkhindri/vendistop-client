@@ -5,6 +5,8 @@ import Registration from "./login-register/Registration";
 import PasswordResetEmail from "./PasswordResetEmail/PasswordResetEmail";
 import DashboardCategories from "./categories/DashboardCategories";
 import Dashboard from "./Dashboard/Dashboard";
+import Terms from "./Terms/Terms";
+import Privacy from "./Privacy/Privacy";
 
 // Export all pages
 export {
@@ -14,4 +16,6 @@ export {
   DashboardCategories,
   Dashboard,
   Home,
+  Terms,
+  Privacy,
 };

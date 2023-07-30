@@ -6,6 +6,8 @@ import {
   PasswordResetEmail,
   Registration,
   Dashboard,
+  Privacy,
+  Terms,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav } from "../components/Dashboard";
@@ -30,6 +32,10 @@ export const Routers = () => {
         <Route element={<NavBar />}>
           {/* Main page routes */}
           <Route path="/" element={<Home />} />
+
+          {/* Privacy and Terms pages */}
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
         </Route>
         {/* Login and signup routes */}
         <Route path="/login" element={<Login />} />

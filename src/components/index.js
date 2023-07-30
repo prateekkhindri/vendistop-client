@@ -7,6 +7,7 @@ import { NavBar } from "./NavBar/NavBar";
 import { Footer } from "./Footer/Footer";
 import { HomeSlider } from "./HomeSlider/HomeSlider";
 import { TrendingProducts } from "./TrendingProducts/TrendingProducts";
+import { Rules } from "./Rules/Rules";
 
 export {
   RegistrationForm,
@@ -18,4 +19,5 @@ export {
   Footer,
   TrendingProducts,
   HomeSlider,
+  Rules,
 };
