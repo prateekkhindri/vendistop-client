@@ -12,6 +12,7 @@ import Wishlist from "./Wishlist/Wishlist";
 import Cart from "./Cart/Cart";
 import Products from "./Products/Products";
 import ProductDetails from "./ProductDetails/ProductDetails";
+import CategoryProducts from "./CategoryProducts/CategoryProducts";
 
 // Export all pages
 export {
@@ -28,4 +29,5 @@ export {
   Cart,
   Products,
   ProductDetails,
+  CategoryProducts,
 };

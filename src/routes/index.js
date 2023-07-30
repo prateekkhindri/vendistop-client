@@ -13,6 +13,7 @@ import {
   Cart,
   Products,
   ProductDetails,
+  CategoryProducts,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
@@ -39,6 +40,10 @@ export const Routers = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/product/:_id" element={<ProductDetails />} />
+          <Route
+            path="/products/category/:catId"
+            element={<CategoryProducts />}
+          />
 
           {/* Wishlist and Cart pages accessible only to a logged in user */}
           <Route
