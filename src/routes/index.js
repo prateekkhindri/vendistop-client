@@ -11,6 +11,8 @@ import {
   NotFound,
   Wishlist,
   Cart,
+  Products,
+  ProductDetails,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav, Statistics } from "../components/Dashboard";
@@ -35,6 +37,8 @@ export const Routers = () => {
         <Route element={<NavBar />}>
           {/* Main page routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/product/:_id" element={<ProductDetails />} />
 
           {/* Wishlist and Cart pages accessible only to a logged in user */}
           <Route
