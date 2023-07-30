@@ -7,6 +7,7 @@ import DashboardCategories from "./categories/DashboardCategories";
 import Dashboard from "./Dashboard/Dashboard";
 import Terms from "./Terms/Terms";
 import Privacy from "./Privacy/Privacy";
+import NotFound from "./NotFound/NotFound";
 
 // Export all pages
 export {
@@ -18,4 +19,5 @@ export {
   Home,
   Terms,
   Privacy,
+  NotFound,
 };
