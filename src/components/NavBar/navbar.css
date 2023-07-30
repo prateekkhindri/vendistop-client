@@ -1,0 +1,7 @@
+.nav_shadow {
+  box-shadow: 0px 3px 14px rgba(74, 58, 255, 0.03);
+}
+.icon_shadow {
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0px 4px 30px rgba(75, 0, 110, 0.1);
+}

@@ -3,6 +3,7 @@ import { LoginForm } from "./login/LoginForm";
 import { ResetPassword } from "./ResetPassword/ResetPassword";
 import { SubmitButton } from "./SubmitButton/SubmitButton";
 import { VerificationBanner } from "./VerificationBanner/VerificationBanner";
+import { NavBar } from "./NavBar/NavBar";
 
 export {
   RegistrationForm,
@@ -10,4 +11,5 @@ export {
   ResetPassword,
   SubmitButton,
   VerificationBanner,
+  NavBar,
 };

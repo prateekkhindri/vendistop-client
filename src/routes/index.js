@@ -1,7 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Login, PasswordResetEmail, Registration, Dashboard } from "../pages";
-import { ResetPassword } from "../components";
+import {
+  Home,
+  Login,
+  PasswordResetEmail,
+  Registration,
+  Dashboard,
+} from "../pages";
+import { NavBar, ResetPassword } from "../components";
 import { DashNav } from "../components/Dashboard";
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
@@ -21,6 +27,10 @@ export const Routers = () => {
   return (
     <>
       <Routes>
+        <Route element={<NavBar />}>
+          {/* Main page routes */}
+          <Route path="/" element={<Home />} />
+        </Route>
         {/* Login and signup routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Registration />} />

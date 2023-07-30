@@ -1,4 +1,5 @@
 // Import all pages here
+import Home from "./Home/Home";
 import Login from "./login-register/Login";
 import Registration from "./login-register/Registration";
 import PasswordResetEmail from "./PasswordResetEmail/PasswordResetEmail";
@@ -12,4 +13,5 @@ export {
   PasswordResetEmail,
   DashboardCategories,
   Dashboard,
+  Home,
 };
