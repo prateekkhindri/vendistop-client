@@ -8,6 +8,7 @@ import {
   Dashboard,
   Privacy,
   Terms,
+  NotFound,
 } from "../pages";
 import { NavBar, ResetPassword } from "../components";
 import { DashNav } from "../components/Dashboard";
@@ -118,6 +119,10 @@ export const Routers = () => {
             />
           </Route>
         </Route>
+
+        {/* If there is not routes available then return 404 page instead */}
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to={"/404"} />} />
       </Routes>
     </>
   );
