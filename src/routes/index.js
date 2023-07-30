@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Login, PasswordResetEmail, Registration, Dashboard } from "../pages";
 import { ResetPassword } from "../components";
-import { DashNav } from "../components/Dashboard";
+import { DashNav, Statistics } from "../components/Dashboard";
 import DashboardCategories from "../pages/categories/DashboardCategories";
 import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
@@ -57,6 +57,7 @@ export const Routers = () => {
               </PrivateRouter>
             }
           >
+            <Route index element={<Statistics />} />
             <Route
               path="products"
               element={
