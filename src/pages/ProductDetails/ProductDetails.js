@@ -19,6 +19,8 @@ const ProductDetails = () => {
 
   useEffect(() => {
     _id && dispatch(fetchSingleProductAction(_id));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const { selectedProduct } = useSelector((state) => state.productStore);
