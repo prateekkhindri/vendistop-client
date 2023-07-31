@@ -23,6 +23,13 @@ import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
 import ProductList from "../pages/dashboard-products/ProductList";
 import Orders from "../pages/orders/Orders";
+import { CheckoutForm } from "../components/checkout-form/CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const publishableKey = process.env.REACT_APP_STRIPE_API_KEY;
+
+const stripePromise = loadStripe(publishableKey);
 
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
@@ -61,6 +68,19 @@ export const Routers = () => {
             element={
               <PrivateRouter>
                 <Cart />
+              </PrivateRouter>
+            }
+          />
+
+          {/* Payment Route */}
+
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRouter>
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm />
+                </Elements>
               </PrivateRouter>
             }
           />
