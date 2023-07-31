@@ -54,7 +54,9 @@ export const CheckoutForm = () => {
       timer: 4000,
       allowOutsideClick: false,
     }).then(() => {
-      navigate(`/order/${newOrder._id}`);
+      navigate(`/order/${newOrder._id}`, {
+        state: { paymentSuccess: true },
+      });
     });
   };
   const handleFail = () => {

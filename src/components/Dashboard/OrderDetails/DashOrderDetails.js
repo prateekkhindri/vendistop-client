@@ -1,24 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { updateOrderToDeliveredAction } from "../../../pages/orders/orderAction";
 
 export const DashOrderDetails = ({ adminPage }) => {
   const { currentOrder } = useSelector((state) => state.orderStore);
 
-  const isAdmin = useSelector((state) => state.adminUser.user.role) === "Admin";
-
   return (
-    <div>
-      <OrderIDCard currentOrder={currentOrder} adminPage={adminPage} />
-      <OrderSummary currentOrder={currentOrder} />
-      <DeliveryTo currentOrder={currentOrder} />
-      <AddedItemsDetails currentOrder={currentOrder} />
-      <OrderPriceCard currentOrder={currentOrder} />
-    </div>
+    currentOrder._id && (
+      <div>
+        <OrderIDCard currentOrder={currentOrder} adminPage={adminPage} />
+        <OrderSummary currentOrder={currentOrder} />
+        <DeliveryTo currentOrder={currentOrder} />
+        <AddedItemsDetails currentOrder={currentOrder} />
+        <OrderPriceCard currentOrder={currentOrder} />
+      </div>
+    )
   );
 };
 
 // Order id card component
 const OrderIDCard = ({ currentOrder, adminPage }) => {
+  const dispatch = useDispatch();
+
   const date = new Date(currentOrder.createdAt);
   const options = {
     year: "numeric",
@@ -27,13 +31,31 @@ const OrderIDCard = ({ currentOrder, adminPage }) => {
     hour: "2-digit",
     minute: "2-digit",
   };
-  const formattedDate = new Intl.DateTimeFormat("en-AU", options).format(date);
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
 
   const capitalize = function (string) {
     return string
       .split(/_| /)
       .map((part) => part[0]?.toUpperCase() + part.slice(1).toLowerCase())
       .join(" ");
+  };
+
+  const handleUpdateStatus = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You are about to change the order status from 'pending' to 'delivered'.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, change it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // The user clicked on "Yes, change it!"
+        dispatch(updateOrderToDeliveredAction(currentOrder._id));
+        Swal.fire("Updated!", "The order status has been updated.", "success");
+      }
+    });
   };
 
   return (
@@ -49,8 +71,13 @@ const OrderIDCard = ({ currentOrder, adminPage }) => {
         </div>
         <div className="delivery-status">
           {adminPage ? (
-            <button className="bg-custom-purple hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
-              <span className="text-xs md:text-sm text-right text-[#2c2c2c] font-semibold">
+            <button
+              className="bg-purple-200 hover:bg-purple-700 font-bold py-2 px-4 rounded hover:text-white text-[#2c2c2c] border-2 border-purple-700 border-opacity-40 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:cursor-not-allowed"
+              type="button"
+              onClick={handleUpdateStatus}
+              disabled={currentOrder.orderStatus === "delivered"}
+            >
+              <span className="text-xs md:text-sm text-right font-semibold">
                 {capitalize(currentOrder.orderStatus)}
               </span>
             </button>

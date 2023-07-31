@@ -66,16 +66,13 @@ export const DashAside = ({ handleToggle }) => {
           </NavLink>
 
           {/* Order List */}
-          <NavLink
-            className="w-full my-1 group hover:text-white"
-            to={"order-list"}
-          >
+          <NavLink className="w-full my-1 group hover:text-white" to={"orders"}>
             <li className="group/history flex items-center hover:bg-[#4C00B0] group-[.active]:bg-[#4C00B0] group-[.active]:text-white rounded-md px-3 transition py-2">
               <Icon
                 icon={"material-symbols:order-approve-sharp"}
                 className="text-lg text-[#4C00B0] group-hover/history:text-white group-[.active]:text-white transition"
               />
-              <p className="pl-2 transition">Order List</p>
+              <p className="pl-2 transition">Orders</p>
             </li>
           </NavLink>
 

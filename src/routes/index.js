@@ -190,10 +190,19 @@ export const Routers = () => {
             />
 
             <Route
-              path="order-list"
+              path="orders"
               element={
                 <PrivateRouter>
                   <Orders />
+                </PrivateRouter>
+              }
+            />
+
+            <Route
+              path="orders/:_id"
+              element={
+                <PrivateRouter>
+                  <AdminOrderSummary />
                 </PrivateRouter>
               }
             />
@@ -208,15 +217,6 @@ export const Routers = () => {
             />
           </Route>
         </Route>
-
-        <Route
-          path="order-details/:_id"
-          element={
-            <PrivateRouter>
-              <AdminOrderSummary />
-            </PrivateRouter>
-          }
-        />
 
         {/* If there are no routes available then return 404 page instead */}
         <Route path="/404" element={<NotFound />} />
