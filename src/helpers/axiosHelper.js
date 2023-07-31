@@ -341,7 +341,6 @@ export const removeFromUserCart = (productId, removeAll = false) => {
 };
 
 // Clear user cart
-
 export const clearUserCart = () => {
   const option = {
     method: "delete",
@@ -352,7 +351,7 @@ export const clearUserCart = () => {
   return apiProcessor(option);
 };
 
-// Admin user API calls (These are private routes)
+// Update user profile, password API calls (These are private routes) - only accessible to a logged in user
 export const updateAdminPassword = (data) => {
   const option = {
     method: "patch",
