@@ -26,6 +26,7 @@ import Orders from "../pages/orders/Orders";
 import { CheckoutForm } from "../components/checkout-form/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import OrderSummary from "../pages/order-summary/OrderSummary";
 
 const publishableKey = process.env.REACT_APP_STRIPE_API_KEY;
 
@@ -72,8 +73,16 @@ export const Routers = () => {
             }
           />
 
-          {/* Payment Route */}
+          <Route
+            path="/order/:_id"
+            element={
+              <PrivateRouter>
+                <OrderSummary />
+              </PrivateRouter>
+            }
+          />
 
+          {/* Payment Route */}
           <Route
             path="/checkout"
             element={
