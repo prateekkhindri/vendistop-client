@@ -27,6 +27,7 @@ import { CheckoutForm } from "../components/checkout-form/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSummary from "../pages/order-summary/OrderSummary";
+import AdminOrderSummary from "../pages/admin-order-summary/AdminOrderSummary";
 
 const publishableKey = process.env.REACT_APP_STRIPE_API_KEY;
 
@@ -208,7 +209,16 @@ export const Routers = () => {
           </Route>
         </Route>
 
-        {/* If there is not routes available then return 404 page instead */}
+        <Route
+          path="order-details/:_id"
+          element={
+            <PrivateRouter>
+              <AdminOrderSummary />
+            </PrivateRouter>
+          }
+        />
+
+        {/* If there are no routes available then return 404 page instead */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to={"/404"} />} />
       </Routes>
