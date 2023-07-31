@@ -4,6 +4,7 @@ import { DashUploadProducts } from "./UploadProducts/DashUploadProducts";
 import { DashOrderList } from "./OrderList/DashOrderList";
 import { DashAside } from "./AsideProfle/DashAside";
 import { Statistics } from "./Statistics/Statistics";
+import { DashOrderDetails } from "./OrderDetails/DashOrderDetails";
 
 export {
   DashNav,
@@ -12,4 +13,5 @@ export {
   DashOrderList,
   DashAside,
   Statistics,
+  DashOrderDetails,
 };
