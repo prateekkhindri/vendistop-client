@@ -16,11 +16,15 @@ const orderSlice = createSlice({
     setOrders: (state, { payload }) => {
       state.orders = payload;
     },
+
+    resetCurrentOrder: (state) => {
+      state.currentOrder = {};
+    },
   },
 });
 
 const { actions, reducer } = orderSlice;
 
-export const { setCurrentOrder, setOrders } = actions;
+export const { setCurrentOrder, setOrders, resetCurrentOrder } = actions;
 
 export default reducer;

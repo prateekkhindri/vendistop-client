@@ -6,7 +6,7 @@ import {
   updateOrderToDelivered,
   getAllOrders,
 } from "../../helpers/axiosHelper.js";
-import { setCurrentOrder, setOrders } from "./orderSlice.js";
+import { setCurrentOrder, setOrders, resetCurrentOrder } from "./orderSlice.js";
 
 // Below is an admin action - To get all orders in the admin dashboard
 export const getAllOrdersAction = () => async (dispatch) => {
@@ -35,7 +35,11 @@ export const getSingleOrderAction = (_id) => async (dispatch) => {
   return order;
 };
 
-// Create a new order - only admin can action
+export const resetCurrentOrderAction = () => async (dispatch) => {
+  dispatch(resetCurrentOrder());
+};
+
+// Create a new order - only an admin user can action
 export const createOrderAction = (orderData) => async (dispatch) => {
   const responsePromise = createOrder(orderData);
 
@@ -52,7 +56,7 @@ export const createOrderAction = (orderData) => async (dispatch) => {
   return order;
 };
 
-// Update order to delivered - only admin can action
+// Update order to delivered - Only an admin user can action
 export const updateOrderToDeliveredAction = (_id) => async (dispatch) => {
   const responsePromise = updateOrderToDelivered(_id);
 
@@ -64,5 +68,7 @@ export const updateOrderToDeliveredAction = (_id) => async (dispatch) => {
 
   toast[status](message);
 
-  status === "success" && dispatch(getAllOrdersAction());
+  status === "success" &&
+    dispatch(getAllOrdersAction()) &&
+    dispatch(getSingleOrderAction(_id));
 };

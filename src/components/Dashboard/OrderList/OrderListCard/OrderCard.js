@@ -29,14 +29,16 @@ export const OrderCard = ({
       <div>${totalPrice}</div>
       <div
         className={` ${
-          status ? "bg-[#A4FFA7] text-[#23B53A]" : "bg-[#EBC0FF] text-[#A75ECA]"
+          status === "delivered"
+            ? "bg-[#A4FFA7] text-[#23B53A]"
+            : "bg-[#EBC0FF] text-[#A75ECA]"
         } p-1 text-center rounded-md mr-3`}
       >
-        {status === "Delivered" ? "Delivered" : "Pending"}
+        {status}
       </div>
       <div>{date}</div>
       <div className="bg-[#4C00B0] text-white text-sm text-center rounded-md p-2 hover:bg-opacity-80">
-        <Link to={`/order-details/${_id}`}>View Details</Link>
+        <Link to={`/dashboard/orders/${_id}`}>View Details</Link>
       </div>
     </div>
   );

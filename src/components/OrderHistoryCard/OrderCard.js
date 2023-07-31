@@ -21,7 +21,7 @@ export const OrderCard = ({ _id, date, total, status, orderItems }) => {
       <div>{_id.substring(0, 8)}</div>
       <div>{date}</div>
       <div>${total}</div>
-      <div>{status === "Delivered" ? "Delivered" : "Pending"}</div>
+      <div>{status}</div>
     </div>
   );
 };

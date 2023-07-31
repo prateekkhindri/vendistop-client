@@ -14,7 +14,7 @@ const Card = ({ date, time, name, amount, status }) => {
       </div>
       <div>{name}</div>
       <div>${amount}</div>
-      <div>{status === "Delivered" ? "Delivered" : "Pending"}</div>
+      <div>{status}</div>
     </div>
   );
 };
@@ -93,7 +93,7 @@ export const Statistics = () => {
             Latest Orders
           </p>
           <Link
-            to={"order-list"}
+            to={"orders"}
             className="text-[#4C00B0] underline font-semibold"
           >
             View all orders

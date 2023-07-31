@@ -23,6 +23,15 @@ import { PrivateRouter } from "../components/private-route/PrivateRouter";
 import UploadProduct from "../pages/upload-product/UploadProduct";
 import ProductList from "../pages/dashboard-products/ProductList";
 import Orders from "../pages/orders/Orders";
+import { CheckoutForm } from "../components/checkout-form/CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import OrderSummary from "../pages/order-summary/OrderSummary";
+import AdminOrderSummary from "../pages/admin-order-summary/AdminOrderSummary";
+
+const publishableKey = process.env.REACT_APP_STRIPE_API_KEY;
+
+const stripePromise = loadStripe(publishableKey);
 
 export const Routers = () => {
   const [toggle, setToggle] = useState(false);
@@ -61,6 +70,27 @@ export const Routers = () => {
             element={
               <PrivateRouter>
                 <Cart />
+              </PrivateRouter>
+            }
+          />
+
+          <Route
+            path="/order/:_id"
+            element={
+              <PrivateRouter>
+                <OrderSummary />
+              </PrivateRouter>
+            }
+          />
+
+          {/* Payment Route */}
+          <Route
+            path="/checkout"
+            element={
+              <PrivateRouter>
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm />
+                </Elements>
               </PrivateRouter>
             }
           />
@@ -160,10 +190,19 @@ export const Routers = () => {
             />
 
             <Route
-              path="order-list"
+              path="orders"
               element={
                 <PrivateRouter>
                   <Orders />
+                </PrivateRouter>
+              }
+            />
+
+            <Route
+              path="orders/:_id"
+              element={
+                <PrivateRouter>
+                  <AdminOrderSummary />
                 </PrivateRouter>
               }
             />
@@ -179,7 +218,7 @@ export const Routers = () => {
           </Route>
         </Route>
 
-        {/* If there is not routes available then return 404 page instead */}
+        {/* If there are no routes available then return 404 page instead */}
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to={"/404"} />} />
       </Routes>
