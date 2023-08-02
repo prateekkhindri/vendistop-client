@@ -1,13 +1,9 @@
 import React from "react";
-// import link for routing
 import { Link } from "react-router-dom";
-// import static images
-import { images } from "../../../constants/index";
-// import circle decorations icon images
 import heroMobileCirle from "../../../assets/svg_banner/hero_mobile_circle.svg";
 import heroDesktopCirle from "../../../assets/svg_banner/hero_desktop_circle.svg";
 
-export const SlideBanner = () => {
+export const SlideBanner = ({ imgSmall, imgLarge }) => {
   return (
     <div className="max-w-screen-xl mx-auto">
       <div
@@ -46,12 +42,12 @@ export const SlideBanner = () => {
           <div className="flex">
             <img
               className="object-cover md:hidden w-[239px] h-[217px]"
-              src={images.cuteWoman}
+              src={imgSmall}
               alt="hero_person"
             />
             <img
               className="hidden z-[1] object-cover md:block lg:mt-8"
-              src={images.cuteWomanBig}
+              src={imgLarge}
               alt="hero_person"
             />
           </div>

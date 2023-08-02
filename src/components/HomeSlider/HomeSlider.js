@@ -4,6 +4,7 @@ import { SlideBanner } from "./SlideBanner/Slider";
 import "swiper/css/navigation";
 import "swiper/css";
 import { Icon } from "@iconify/react";
+import { images } from "../../constants/";
 
 export const HomeSlider = () => {
   return (
@@ -24,17 +25,20 @@ export const HomeSlider = () => {
         }}
       >
         <SwiperSlide>
-          <SlideBanner />
+          <SlideBanner
+            imgSmall={images.cuteWomanBig}
+            imgLarge={images.cuteWomanBig}
+          />
         </SwiperSlide>
+
         <SwiperSlide>
-          <SlideBanner />
+          <SlideBanner imgSmall={images.goPro} imgLarge={images.goPro} />
         </SwiperSlide>
+
         <SwiperSlide>
-          <SlideBanner />
+          <SlideBanner imgSmall={images.watch} imgLarge={images.watch} />
         </SwiperSlide>
-        <SwiperSlide>
-          <SlideBanner />
-        </SwiperSlide>
+
         <button className="hidden md:flex absolute z-[2] md:top-[46%] md:left-0 cursor-pointer md:items-center md:justify-center p-3 rounded-full bg-[#E2E2E2] hover:bg-[#e2e2e2a4] button-prev-slide">
           <Icon
             icon="ph:arrow-left"
