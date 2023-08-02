@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { OrderListCard } from "./OrderListCard/OrderListCard";
+import { useSelector } from "react-redux";
 
 export const DashOrderList = () => {
   const [toggle, setToggle] = useState(false);
   const [currentItem, setCurrentItem] = useState("All");
   const popup_ref = useRef(null);
   const button_ref = useRef(null);
+
+  const { orders } = useSelector((state) => state.orderStore);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,7 +39,7 @@ export const DashOrderList = () => {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-5">
-        <h1 className="text-[#2c3c3c] text-xl font-semibold">Order List</h1>
+        <h1 className="text-[#2c3c3c] text-xl font-semibold">Orders</h1>
         <div className="cursor-pointer" ref={button_ref} onClick={handleToggle}>
           Status:
           <span className="relative">
@@ -77,15 +80,24 @@ export const DashOrderList = () => {
           </span>
         </div>
       </div>
-      <section className="max-w-screen-xl mx-auto">
-        <div className="pb-40">
-          <div className="p-8 mx-auto overflow-x-auto bg-white rounded-xl">
-            <OrderListCard
-              status={currentItem === "All" ? null : currentItem}
-            />
-          </div>
+
+      {orders.length === 0 ? (
+        <div className="flex justify-center items-center h-64">
+          <label className="text-lg md:text-2xl text-[#ADADAD]">
+            No orders to show
+          </label>
         </div>
-      </section>
+      ) : (
+        <section className="max-w-screen-xl mx-auto">
+          <div className="pb-40">
+            <div className="p-8 mx-auto overflow-x-auto bg-white rounded-xl">
+              <OrderListCard
+                status={currentItem === "All" ? null : currentItem}
+              />
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

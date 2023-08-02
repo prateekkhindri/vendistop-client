@@ -99,41 +99,50 @@ export const Statistics = () => {
             View all orders
           </Link>
         </div>
-        <div className="my-2 overflow-x-auto max-w-screen-xl mx-auto">
-          <div className="min-w-[350px] w-full mt-5">
-            <div className="grid grid-cols-card text-left w-full text-xs md:text-sm font-medium md:font-normal text-[#ADADAD]">
-              <span>Date</span>
-              <span>Customer Name</span>
-              <span>Amount</span>
-              <span>Status</span>
-            </div>
-            <div className="mt-3">
-              {orders.map((item) => {
-                const date = new Date(item.createdAt);
-                const datePart = date.toLocaleDateString("en-AU", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                });
-                const timePart = date.toLocaleTimeString("en-AU", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                });
 
-                return (
-                  <Card
-                    key={item._id}
-                    date={datePart}
-                    time={timePart}
-                    name={item.customerDetails.name}
-                    amount={item.totalPrice}
-                    status={item.orderStatus}
-                  />
-                );
-              })}
+        {orders.length === 0 ? (
+          <div className="flex justify-center items-center h-64">
+            <label className="text-lg md:text-2xl text-[#ADADAD]">
+              No orders to show
+            </label>
+          </div>
+        ) : (
+          <div className="my-2 overflow-x-auto max-w-screen-xl mx-auto">
+            <div className="min-w-[350px] w-full mt-5">
+              <div className="grid grid-cols-card text-left w-full text-xs md:text-sm font-medium md:font-normal text-[#ADADAD]">
+                <span>Date</span>
+                <span>Customer Name</span>
+                <span>Amount</span>
+                <span>Status</span>
+              </div>
+              <div className="mt-3">
+                {orders.map((item) => {
+                  const date = new Date(item.createdAt);
+                  const datePart = date.toLocaleDateString("en-AU", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  });
+                  const timePart = date.toLocaleTimeString("en-AU", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  });
+
+                  return (
+                    <Card
+                      key={item._id}
+                      date={datePart}
+                      time={timePart}
+                      name={item.customerDetails.name}
+                      amount={item.totalPrice}
+                      status={item.orderStatus}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
