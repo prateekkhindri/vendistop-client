@@ -39,8 +39,8 @@ const CategoryProducts = () => {
   }
 
   return (
-    <>
-      <div>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow">
         <div className="pt-1 pb-10 mx-auto">
           <div className="bg-[#4C00B0] text-white py-10 xl:py-16 mb-5">
             <div className="flex flex-col items-center justify-center">
@@ -53,23 +53,32 @@ const CategoryProducts = () => {
               </p>
             </div>
           </div>
-          <div className="grid max-w-screen-xl grid-cols-1 mx-auto my-12 xss:grid-cols-2 xs:px-2 xsm:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-x-3">
-            {filteredProducts.map((product) => {
-              return (
-                <ProductCard
-                  key={product._id}
-                  _id={product._id}
-                  image={product.image}
-                  title={product.name}
-                  price={product.price}
-                />
-              );
-            })}
-          </div>
+
+          {filteredProducts.length === 0 ? (
+            <div className="flex justify-center items-center h-64">
+              <label className="text-lg md:text-2xl text-[#ADADAD]">
+                No products to show
+              </label>
+            </div>
+          ) : (
+            <div className="grid max-w-screen-xl grid-cols-1 mx-auto my-12 xss:grid-cols-2 xs:px-2 xsm:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:gap-x-3">
+              {filteredProducts.map((product) => {
+                return (
+                  <ProductCard
+                    key={product._id}
+                    _id={product._id}
+                    image={product.image}
+                    title={product.name}
+                    price={product.price}
+                  />
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
