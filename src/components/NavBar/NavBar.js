@@ -149,7 +149,7 @@ export const NavBar = () => {
             </button>
           </div>
           {/* Product search section */}
-          <div className="items-center justify-center hidden sm:flex group">
+          <div className="items-center justify-center md:flex hidden w-auto group">
             <div className="flex transition-all duration-300 items-center just w-full overflow-hidden bg-[#F8F8F8] border-[#EBEBEB] rounded-md px-5 text-xs border group-focus-within:border-[#4C00B0]">
               <input
                 type="text"
@@ -162,7 +162,7 @@ export const NavBar = () => {
             </button>
           </div>
           {/* Favorite, Cart, Profile Section */}
-          <div className="flex flex-wrap items-center justify-between">
+          <div className="flex items-center justify-between flex-shrink-0">
             <button
               ref={button_ref}
               onClick={handleSearch}
@@ -240,7 +240,7 @@ export const NavBar = () => {
             {/* Search popup */}
             <form>
               <div
-                className={`before:sm:hidden before:transition-all before:duration-300 ${
+                className={`before:md:hidden before:transition-all before:duration-300 ${
                   searchPopup
                     ? "before:translate-x-0 opacity-100 before:block"
                     : "before:-translate-x-52 opacity-0 before:hidden"
@@ -248,7 +248,7 @@ export const NavBar = () => {
               >
                 <div
                   ref={popup_box}
-                  className={`sm:hidden ${
+                  className={`md:hidden ${
                     searchPopup
                       ? "translate-x-0 opacity-100 visible"
                       : "-translate-x-52 opacity-0 invisible"
