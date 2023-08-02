@@ -33,17 +33,25 @@ const DashboardCategories = () => {
       <AddCatForm />
       <div className="p-3 bg-white shadow-sm md:py-10 rounded-xl my-9">
         <div className="max-w-[500px] mx-auto">
-          <div className="w-full">
-            <label className="text-xs md:text-sm text-[#ADADAD]">
-              {categories.length} Categories Found !
-            </label>
+          {categories.length === 0 ? (
+            <div className="flex justify-center items-center h-64">
+              <label className="text-lg md:text-2xl text-[#ADADAD]">
+                No categories to show
+              </label>
+            </div>
+          ) : (
+            <div className="w-full">
+              <label className="text-xs md:text-sm text-[#ADADAD]">
+                {categories.length} Categories Found !
+              </label>
 
-            <UpdateCategory
-              handleDelete={handleDelete}
-              isEditMode={isEditMode}
-              setIsEditMode={setIsEditMode}
-            />
-          </div>
+              <UpdateCategory
+                handleDelete={handleDelete}
+                isEditMode={isEditMode}
+                setIsEditMode={setIsEditMode}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
