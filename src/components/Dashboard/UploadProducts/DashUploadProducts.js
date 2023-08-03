@@ -5,10 +5,11 @@ import {
   updateProductAction,
 } from "../../../pages/upload-product/productAction";
 import UploadImage from "./UploadImage";
+import { toast } from "react-toastify";
 
 const initialState = {
   name: "",
-  catId: null,
+  catId: "",
   description: "",
   price: "",
   topProduct: false,
@@ -56,15 +57,29 @@ export const DashUploadProducts = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!image && !selectedProduct._id) {
+      toast.error("Please upload an image");
+      return;
+    }
+
+    if (!image && selectedProduct._id) {
+      toast.error("Please upload a new image");
+      return;
+    }
+
     const formData = new FormData();
 
     for (const key in form) {
-      formData.append(key, form[key]);
+      if (key === "topProduct") {
+        formData.append(key, (form[key] ?? false).toString());
+      } else {
+        formData.append(key, form[key]);
+      }
     }
 
-    console.log({ image });
-
-    formData.append("image", image);
+    if (image) {
+      formData.append("image", image);
+    }
 
     selectedProduct._id
       ? dispatch(updateProductAction(formData, selectedProduct._id))
@@ -74,11 +89,6 @@ export const DashUploadProducts = () => {
     setImage("");
     categorySelector.current.value = "";
   };
-
-  // change the page title
-  useEffect(() => {
-    document.title = "Dashboard - Upload Products";
-  });
 
   return (
     <div className="flex items-center justify-center w-full mt-4 bg-white rounded-xl">
@@ -109,7 +119,7 @@ export const DashUploadProducts = () => {
               className="text-xs lg:text-base font-normal text-[#ADADAD]"
               htmlFor="state"
             >
-              Categories
+              Category
             </label>
             <select
               type="text"

@@ -48,5 +48,8 @@ export const updateProductAction = (data, _id) => async (dispatch) => {
 
   toast[status](message);
 
-  status === "success" && dispatch(fetchSingleProductAction(_id));
+  if (status === "success") {
+    dispatch(fetchSingleProductAction(_id));
+    dispatch(fetchProductsAction());
+  }
 };

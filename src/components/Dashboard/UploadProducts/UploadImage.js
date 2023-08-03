@@ -90,6 +90,8 @@ const UploadImage = ({ selectedProductImage, image, setImage }) => {
   const onDelete = (event) => {
     event.stopPropagation();
     setImage(null);
+
+    imgInputRef.current.value = null;
   };
 
   if (image) {
