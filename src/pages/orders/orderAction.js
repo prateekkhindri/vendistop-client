@@ -39,7 +39,7 @@ export const resetCurrentOrderAction = () => async (dispatch) => {
   dispatch(resetCurrentOrder());
 };
 
-// Create a new order - only an admin user can action
+// Create a new order
 export const createOrderAction = (orderData) => async (dispatch) => {
   const responsePromise = createOrder(orderData);
 
@@ -51,7 +51,10 @@ export const createOrderAction = (orderData) => async (dispatch) => {
 
   toast[status](message);
 
-  status === "success" && dispatch(setCurrentOrder(order));
+  if (status === "success") {
+    dispatch(setCurrentOrder(order));
+    dispatch(getAllOrdersAction());
+  }
 
   return order;
 };

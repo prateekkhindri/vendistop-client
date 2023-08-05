@@ -1,6 +1,7 @@
 import React from "react";
 import { OrderCard } from "./OrderCard";
 import { useSelector } from "react-redux";
+import { capitalize } from "../../constants/capitalize";
 
 export const OrderHistoryCard = () => {
   const { orders } = useSelector((state) => state.orderStore);
@@ -34,7 +35,7 @@ export const OrderHistoryCard = () => {
             _id={item._id}
             date={formattedDate}
             total={item.totalPrice}
-            status={item.orderStatus}
+            status={capitalize(item.orderStatus)}
           />
         );
       })}

@@ -14,5 +14,5 @@ export const updateAdminProfileAction = (obj) => async (dispatch) => {
   toast[status](message);
 
   //   If the status is success, we refetch the user profile
-  status === "success" && setUser(user);
+  status === "success" && dispatch(setUser(user));
 };

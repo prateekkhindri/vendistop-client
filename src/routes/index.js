@@ -28,6 +28,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSummary from "../pages/order-summary/OrderSummary";
 import AdminOrderSummary from "../pages/admin-order-summary/AdminOrderSummary";
+import { AdminRouter } from "../components/private-route/AdminRouter";
 
 const publishableKey = process.env.REACT_APP_STRIPE_API_KEY;
 
@@ -153,66 +154,66 @@ export const Routers = () => {
           <Route
             path="/dashboard"
             element={
-              <PrivateRouter>
+              <AdminRouter>
                 <Dashboard
                   toggle={toggle}
                   handleToggle={handleToggle}
                   dashRef={dashRef}
                 />
-              </PrivateRouter>
+              </AdminRouter>
             }
           >
             <Route index element={<Statistics />} />
             <Route
               path="products"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <ProductList />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
             <Route
               path="upload-products"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <UploadProduct />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
 
             <Route
               path="upload-products/:_id"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <UploadProduct />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
 
             <Route
               path="orders"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <Orders />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
 
             <Route
               path="orders/:_id"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <AdminOrderSummary />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
 
             <Route
               path="categories"
               element={
-                <PrivateRouter>
+                <AdminRouter>
                   <DashboardCategories />
-                </PrivateRouter>
+                </AdminRouter>
               }
             />
           </Route>

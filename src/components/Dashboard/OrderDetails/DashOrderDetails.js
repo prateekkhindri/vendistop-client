@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { updateOrderToDeliveredAction } from "../../../pages/orders/orderAction";
+import { capitalize } from "../../../constants/capitalize.js";
 
 export const DashOrderDetails = ({ adminPage }) => {
   const { currentOrder } = useSelector((state) => state.orderStore);
@@ -32,13 +33,6 @@ const OrderIDCard = ({ currentOrder, adminPage }) => {
     minute: "2-digit",
   };
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
-
-  const capitalize = function (string) {
-    return string
-      .split(/_| /)
-      .map((part) => part[0]?.toUpperCase() + part.slice(1).toLowerCase())
-      .join(" ");
-  };
 
   const handleUpdateStatus = () => {
     Swal.fire({

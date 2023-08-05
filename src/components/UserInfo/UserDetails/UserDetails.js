@@ -50,8 +50,6 @@ export const UserDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(form);
-
     const {
       fName,
       lName,

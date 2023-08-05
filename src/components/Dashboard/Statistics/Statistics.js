@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { capitalize } from "../../../constants/capitalize.js";
 import "./statistics.css";
 
 const Card = ({ date, time, name, amount, status }) => {
@@ -24,6 +25,14 @@ export const Statistics = () => {
 
   const { products } = useSelector((state) => state.productStore);
 
+  const { categories } = useSelector((state) => state.categoriesStore);
+
+  // Calculate total balance
+  let totalBalance = orders.reduce(
+    (total, order) => total + order.totalPrice,
+    0
+  );
+
   return (
     <div>
       <div className="text-[#515050] font-semibold text-xl pb-5">
@@ -37,7 +46,9 @@ export const Statistics = () => {
             </div>
             <div className="flex items-end justify-between w-full pt-3 md:pt-5">
               <div>
-                <h3 className="text-sm font-semibold md:text-lg">$78.90</h3>
+                <h3 className="text-sm font-semibold md:text-lg">
+                  ${totalBalance.toFixed(2)}
+                </h3>
                 <p className="text-[10px] lg:text-sm">TOTAL BALANCE </p>
               </div>
             </div>
@@ -61,12 +72,14 @@ export const Statistics = () => {
         <div className="bg-[#FFF4BA] rounded-xl p-4">
           <div className="flex h-full w-full flex-col justify-between items-start text-[#2C2C2C}">
             <div className="text-xl md:text-3xl">
-              <Icon icon="fluent:person-circle-24-regular" />
+              <Icon icon="fa-solid:layer-group" />
             </div>
             <div className="flex items-end justify-between w-full pt-3 md:pt-5">
               <div>
-                <h3 className="text-sm font-semibold md:text-lg">999</h3>
-                <p className="text-[10px] lg:text-sm">CUSTOMERS</p>
+                <h3 className="text-sm font-semibold md:text-lg">
+                  {categories?.length || 0}
+                </h3>
+                <p className="text-[10px] lg:text-sm">CATEGORIES</p>
               </div>
             </div>
           </div>
@@ -135,7 +148,7 @@ export const Statistics = () => {
                       time={timePart}
                       name={item.customerDetails.name}
                       amount={item.totalPrice}
-                      status={item.orderStatus}
+                      status={capitalize(item.orderStatus)}
                     />
                   );
                 })}
