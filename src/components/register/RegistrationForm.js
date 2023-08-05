@@ -53,13 +53,17 @@ export const RegistrationForm = () => {
             {/* Name input section */}
             <div className="input_container">
               <div className="flex flex-col items-start justify-center">
-                <label className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1">
+                <label
+                  className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1"
+                  htmlFor="fName"
+                >
                   First Name
                 </label>
                 <input
                   className="transition-all focus:border-[#4C00B0] w-full bg-[#F8F8F8] outline-none border-[#EBEBEB] rounded-3xl px-5 text-xs py-3 border text-[#2C2C2C] font-medium leading-5"
                   required
                   placeholder="Enter first name"
+                  id="fName"
                   type="text"
                   name="fName"
                   onChange={handleChange}
@@ -69,13 +73,17 @@ export const RegistrationForm = () => {
 
             <div className="input_container">
               <div className="flex flex-col items-start justify-center">
-                <label className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1">
+                <label
+                  className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1"
+                  htmlFor="lName"
+                >
                   Last Name
                 </label>
                 <input
                   className="transition-all focus:border-[#4C00B0] w-full bg-[#F8F8F8] outline-none border-[#EBEBEB] rounded-3xl px-5 text-xs py-3 border text-[#2C2C2C] font-medium leading-5"
                   required
                   placeholder="Enter last name"
+                  id="lName"
                   type="text"
                   name="lName"
                   onChange={handleChange}
@@ -85,13 +93,17 @@ export const RegistrationForm = () => {
 
             {/* Email input section */}
             <div className="flex flex-col items-start justify-center ">
-              <label className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1">
+              <label
+                className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1"
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
                 className="transition-all focus:border-[#4C00B0] w-full bg-[#F8F8F8] outline-none border-[#EBEBEB] rounded-3xl px-5 text-xs py-3 border text-[#2C2C2C] font-medium leading-5"
                 required
                 placeholder="Enter your email"
+                id="email"
                 type="email"
                 name="email"
                 onChange={handleChange}
@@ -101,13 +113,17 @@ export const RegistrationForm = () => {
             {/* password section */}
             <div className="input_container">
               <div className="flex flex-col items-start justify-center">
-                <label className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1">
+                <label
+                  className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1"
+                  htmlFor="password"
+                >
                   Password
                 </label>
                 <input
                   className="transition-all focus:border-[#4C00B0] w-full bg-[#F8F8F8] outline-none border-[#EBEBEB] rounded-3xl px-5 text-xs py-3 border text-[#2C2C2C] font-medium leading-5"
                   required
                   placeholder="*******"
+                  id="password"
                   type="password"
                   name="password"
                   onChange={handleChange}
@@ -117,7 +133,10 @@ export const RegistrationForm = () => {
             {/*Retype password section */}
             <div className="input_container">
               <div className="flex flex-col items-start justify-center">
-                <label className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1">
+                <label
+                  className="after:content-['*'] after:ml-0.5 after:text-red-500 after:text-base mt-5 text-[#ADADAD] font-normal text-xs leading-4 mb-1"
+                  htmlFor="confirmPassword"
+                >
                   Confirm Password
                 </label>
                 <input
@@ -125,6 +144,7 @@ export const RegistrationForm = () => {
                   required
                   placeholder="*******"
                   type="password"
+                  id="confirmPassword"
                   name="confirmPassword"
                   onChange={handleChange}
                 />

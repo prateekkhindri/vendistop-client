@@ -110,6 +110,7 @@ export const UpdatePassword = () => {
               value={form.currentPassword}
               onChange={handleChange}
               required
+              data-testid="current-password-input"
               className="bg-[#F8F8F8] py-3 lg:py-4 rounded-2xl text-sm px-4 border border-[#EBEBEB] outline-none focus:border-[#4C00B0] transition mt-2"
             />
           </div>
@@ -124,6 +125,7 @@ export const UpdatePassword = () => {
             <input
               type="password"
               name="password"
+              data-testid="new-password-input"
               required
               onChange={handleChange}
               value={form.password}
@@ -142,6 +144,7 @@ export const UpdatePassword = () => {
             <input
               type="password"
               name="confirmPassword"
+              data-testid="confirm-password-input"
               required
               onChange={handleChange}
               value={form.confirmPassword}

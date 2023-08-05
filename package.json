@@ -48,14 +48,23 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/react": "^14.0.0"
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.22.9",
+    "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.6.2",
+    "redux-mock-store": "^1.5.4",
+    "redux-thunk": "^2.4.2"
   },
   "jest": {
+    "moduleNameMapper": {
+      "\\.(css|jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(axios)/)"
+      "node_modules/(?!(axios|swiper|ssr-window|dom7)/)"
     ]
   }
 }
