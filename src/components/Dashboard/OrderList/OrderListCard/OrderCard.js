@@ -29,7 +29,7 @@ export const OrderCard = ({
       <div>${totalPrice}</div>
       <div
         className={` ${
-          status === "delivered"
+          status === "Delivered"
             ? "bg-[#A4FFA7] text-[#23B53A]"
             : "bg-[#EBC0FF] text-[#A75ECA]"
         } p-1 text-center rounded-md mr-3`}

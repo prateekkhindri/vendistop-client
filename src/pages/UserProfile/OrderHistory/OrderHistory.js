@@ -8,11 +8,15 @@ const OrderHistory = () => {
 
   const { orders } = useSelector((state) => state.orderStore);
 
+  const { user } = useSelector((state) => state.adminUser);
+
+  const userOrders = orders.filter((order) => order.user === user._id);
+
   useEffect(() => {
-    !orders.length && dispatch(getOrdersByUserAction());
+    !orders.length && dispatch(getOrdersByUserAction(user._id));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user._id, userOrders.length]);
 
   return (
     <div className="">
@@ -20,7 +24,7 @@ const OrderHistory = () => {
         Order History
       </h1>
       <section className="max-w-screen-xl mx-auto">
-        {orders.length === 0 ? (
+        {userOrders.length === 0 ? (
           <div className="flex justify-center items-center h-64">
             <label className="text-lg md:text-2xl text-[#ADADAD]">
               No orders to show
@@ -29,7 +33,7 @@ const OrderHistory = () => {
         ) : (
           <div className="pb-40">
             <div className="max-w-[930px] overflow-x-auto mx-auto bg-white rounded-xl p-8">
-              <OrderHistoryCard />
+              <OrderHistoryCard userOrders={userOrders} />
             </div>
           </div>
         )}

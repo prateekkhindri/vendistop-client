@@ -1,14 +1,16 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
 export const AdminRouter = ({ children, ...rest }) => {
   const location = useLocation();
-  const isAdmin = useSelector((state) => state.adminUser.user.role) === "Admin";
+  const userRole = useSelector((state) => state.adminUser.user.role);
+  const isAdmin = userRole === "Admin";
 
-  return isAdmin ? (
-    children
-  ) : (
-    <Navigate to="/404" replace state={{ from: location }} />
-  );
+  if (isAdmin) {
+    return children;
+  } else if (userRole) {
+    return <Navigate to="/" replace state={{ from: location }} />;
+  } else {
+    return <Navigate to="/login" replace state={{ from: location }} />;
+  }
 };

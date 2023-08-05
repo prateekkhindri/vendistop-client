@@ -53,7 +53,7 @@ export const createOrderAction = (orderData) => async (dispatch) => {
 
   if (status === "success") {
     dispatch(setCurrentOrder(order));
-    dispatch(getAllOrdersAction());
+    dispatch(getOrdersByUserAction(order.user));
   }
 
   return order;

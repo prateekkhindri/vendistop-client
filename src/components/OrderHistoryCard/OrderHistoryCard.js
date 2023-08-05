@@ -1,11 +1,8 @@
 import React from "react";
 import { OrderCard } from "./OrderCard";
-import { useSelector } from "react-redux";
 import { capitalize } from "../../constants/capitalize";
 
-export const OrderHistoryCard = () => {
-  const { orders } = useSelector((state) => state.orderStore);
-
+export const OrderHistoryCard = ({ userOrders }) => {
   const options = {
     year: "numeric",
     month: "short",
@@ -23,7 +20,7 @@ export const OrderHistoryCard = () => {
         <div>Status</div>
       </div>
 
-      {orders.map((item) => {
+      {userOrders.map((item) => {
         const date = new Date(item.createdAt);
         const formattedDate = new Intl.DateTimeFormat("en-AU", options).format(
           date
