@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper";
 import { SlideBanner } from "./SlideBanner/Slider";
+import "swiper/css/navigation";
+import "swiper/css";
 import { Icon } from "@iconify/react";
 import { images } from "../../constants/";
 
