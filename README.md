@@ -73,9 +73,17 @@ The responsiveness of the website has been tested on the following devices:
 
 <br>
 
-# Production Test Cases
+# Production Test Cases & Test Credentials
 
 You can find all the production test cases and tests completed [here](/vendistop-client/src/assets/docs/production-test-cases.pdf).
+
+**To test as an Admin user and test the Admin features please use the following credentials:**
+
+Email: admin@example.com
+
+Password: Helloworld90
+
+To test as a customer register on the website with a valid email to test all the features.
 
 <br>
 
