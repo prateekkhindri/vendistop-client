@@ -45,7 +45,7 @@ To set up the Contacts Application on your local machine, follow the steps below
 5. Execute the command below to start the development server
 
    ```bash
-   npm start
+   npm run start-dev
    ```
 
    **The application should now be accessible in the browser at `http://localhost:3000`**
